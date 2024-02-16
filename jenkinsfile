@@ -1,0 +1,42 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout the code from github'){
+            steps{
+                 git url: 'https://github.com/MadhurisaiNachireddy/Banking-java-project/new/master
+                 echo 'github url checkout'
+            }
+        }
+        stage('codecompile with MadhurisaiNachireddy'){
+            steps{
+                echo 'starting compiling'
+                sh 'mvn compile'
+            }
+        }
+        stage('codetesting with MadhurisaiNachireddy'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('qa with MadhurisaiNachireddy'){
+            steps{
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
+        stage('package with MadhurisaiNachireddy'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+        stage('run dockerfile'){
+          steps{
+               sh 'docker build -t myimg .'
+           }
+         }
+        stage('port expose'){
+            steps{
+                sh 'docker run -dt -p 8091:8091 --name c000 myimg'
+            }
+        }   
+    }
+}
