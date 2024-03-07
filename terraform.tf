@@ -10,7 +10,7 @@ terraform {
    region = "ap-south-2"
  }
 
- resource "aws_instances" "Prod-Server" {
+ resource "aws_instance" "Prod-Server" {
    ami               = "ami-0183d80552093ddaf"
    instance_type     = "t2.micro"
    availability_zone = "ap-south-2c"
