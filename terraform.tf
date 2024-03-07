@@ -134,7 +134,7 @@ resource "aws_instance" "Prod-Server" {
  key_name = "bank"
  network_interface {
  device_index = 0
- network_interface_id = aws_network_interface.proj-ni.id
+ network_interface_id = eni-0d322d8804d4f0d8f
  }
  user_data  = <<-EOF
  #!/bin/bash
