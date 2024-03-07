@@ -50,7 +50,7 @@ resource "aws_subnet" "proj-subnet" {
  cidr_block = "10.0.1.0/24"
  availability_zone = "ap-south-2c"
  tags = {
- Name = "subnet1"
+ Name = "subnet2"
  }
 }
 
